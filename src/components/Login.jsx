@@ -1,10 +1,12 @@
 import axiosInstance from "../axiosConfig";
 
-import { useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useContext, useState } from "react";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const { login } = useContext(AuthContext);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -14,6 +16,7 @@ const Login = () => {
                 password,
             });
             console.log("User logged in:", response.data);
+            login({ username: response.data.username });
         } catch (error) {
             console.error("Error logging in user:", error.response.data);
         }
