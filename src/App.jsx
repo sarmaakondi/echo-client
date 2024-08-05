@@ -8,10 +8,14 @@ import Echo from "./components/Echo";
 import Favorites from "./components/Favorites";
 import Profile from "./components/Profile";
 import Aside from "./components/Aside";
+import { AuthContext } from "./context/AuthContext";
 
 import "./App.css";
+import { useContext } from "react";
 
 function App() {
+    const { user } = useContext(AuthContext);
+
     return (
         <Router>
             <div className="app">
