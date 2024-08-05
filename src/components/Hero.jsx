@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 import "./Hero.css";
 
 const Hero = () => {
@@ -6,7 +8,7 @@ const Hero = () => {
             {/* profile */}
             <div className="child-container">
                 <div>
-                    <div className="profile-header">
+                    {/* <div className="profile-header">
                         <div className="profile-container">
                             <img
                                 className="profile-picture"
@@ -15,14 +17,15 @@ const Hero = () => {
                             <p className="username">Sarma Akondi</p>
                         </div>
                         <button id="post-button">Echo</button>
-                    </div>
+                    </div> */}
                     {/* echo input */}
-                    <input
+                    {/* <input
                         type="text"
                         name="echo-text"
                         id="echo-text"
                         placeholder="Start an echo..."
-                    />
+                    /> */}
+                    <Outlet />
                 </div>
             </div>
         </div>

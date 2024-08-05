@@ -34,4 +34,5 @@
 .nav-link {
     color: inherit;
     outline: none;
+    text-decoration: none;
 }
