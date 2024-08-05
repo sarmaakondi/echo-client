@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 import { jwtDecode } from "jwt-decode";
-import axiosInstance from "../axiosConfig";
+import { axiosInstance, setupInterceptors } from "../axiosConfig";
 
 export const AuthContext = createContext();
 
@@ -19,14 +19,15 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
     };
 
-    const logout = () => {
+    const logout = useCallback(() => {
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
         setUser(null);
-    };
+    }, []);
 
-    const refreshAccessToken = async () => {
+    const refreshAccessToken = useCallback(async () => {
         const refresh_token = localStorage.getItem("refresh_token");
+
         if (refresh_token) {
             try {
                 const response = await axiosInstance.post("/refresh/", {
@@ -37,11 +38,19 @@ export const AuthProvider = ({ children }) => {
                 const decoded = jwtDecode(access);
                 setUser({ username: decoded.username });
             } catch (error) {
-                console.error("Error refreshing token:", error.response.data);
+                console.error(
+                    "Error refreshing token:",
+                    error.response?.data || error.message
+                );
                 logout();
             }
         }
-    };
+    }, [logout]);
+
+    // Setup Axios interceptors
+    useEffect(() => {
+        setupInterceptors(refreshAccessToken);
+    }, [refreshAccessToken]);
 
     return (
         <AuthContext.Provider

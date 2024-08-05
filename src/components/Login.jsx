@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-import axiosInstance from "../axiosConfig";
+import { axiosInstance } from "../axiosConfig";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
