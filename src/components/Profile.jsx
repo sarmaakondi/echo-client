@@ -1,5 +1,7 @@
+import Login from "./Login";
+
 const Profile = () => {
-    return <h1>Profile</h1>;
+    return <Login />;
 };
 
 export default Profile;
