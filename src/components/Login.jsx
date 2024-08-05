@@ -1,7 +1,8 @@
-import axiosInstance from "../axiosConfig";
-
-import { AuthContext } from "../context/AuthContext";
 import { useContext, useState } from "react";
+import { jwtDecode } from "jwt-decode";
+
+import axiosInstance from "../axiosConfig";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -15,8 +16,17 @@ const Login = () => {
                 username,
                 password,
             });
-            console.log("User logged in:", response.data);
-            login({ username: response.data.username });
+            const { access, refresh } = response.data;
+            const decoded = jwtDecode(access);
+
+            // Store tokens in local storage
+            localStorage.setItem("access_token", access);
+            localStorage.setItem("refresh_token", refresh);
+
+            // Store user details in auth context
+            login({ username: decoded.username });
+
+            console.log("User logged in:", decoded);
         } catch (error) {
             console.error("Error logging in user:", error.response.data);
         }
