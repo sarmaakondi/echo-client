@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 import { axiosInstance } from "../axiosConfig";
 import { AuthContext } from "../context/AuthContext";
 
+import "./Login.css";
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -33,8 +35,9 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
             <input
+                className="login-form-field"
                 type="text"
                 placeholder="Username"
                 required
@@ -42,13 +45,16 @@ const Login = () => {
                 onChange={(event) => setUsername(event.target.value)}
             />
             <input
+                className="login-form-field"
                 type="password"
                 placeholder="Password"
                 required
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit">Login</button>
+            <button id="login-button" type="submit">
+                Login
+            </button>
         </form>
     );
 };
