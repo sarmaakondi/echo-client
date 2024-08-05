@@ -1,0 +1,126 @@
+.aside-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.follow-echo-container,
+.today-echo-container {
+    width: 400px;
+    background-color: hsla(340, 4%, 33%, 0.6);
+    border: 1px solid hsl(340, 4%, 43%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(30px);
+}
+
+.follow-echo-container {
+    border-top-right-radius: 50px;
+    border-bottom: none;
+    height: 60%;
+}
+
+.today-echo-container {
+    border-bottom-right-radius: 50px;
+    height: 40%;
+}
+
+.follow-header,
+.today-header {
+    margin-top: 54px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: hsl(240, 6%, 87%);
+}
+
+.today-header {
+    margin-top: 32px;
+}
+
+#view-button {
+    font-family: inherit;
+    cursor: pointer;
+    background-color: hsl(340, 4%, 33%);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 50px;
+    color: inherit;
+    font-weight: 500;
+    outline: none;
+}
+
+.resonators {
+    margin-top: 18px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resonator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.resonator li {
+    list-style: none;
+    color: hsl(240, 6%, 77%);
+}
+
+.resonator a {
+    text-decoration: none;
+    color: hsl(240, 6%, 67%);
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.resonator-profile-pic,
+.today-echo-profile-pic {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.resonator-handle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resonator-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fa-at {
+    font-size: 24px;
+}
+
+.today-header-handle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.today-echo-section {
+    width: 80%;
+    color: hsl(240, 6%, 77%);
+}
+
+.today-echo-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+    gap: 12px;
+}
+
+.echo-content {
+    margin-top: 16px;
+}

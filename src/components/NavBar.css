@@ -12,6 +12,7 @@
     color: hsl(240, 6%, 87%);
     font-size: 20px;
     backdrop-filter: blur(30px);
+    margin-right: 32px;
 }
 
 .nav-icon {
