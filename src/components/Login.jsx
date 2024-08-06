@@ -5,6 +5,7 @@ import { axiosInstance } from "../axiosConfig";
 import { AuthContext } from "../context/AuthContext";
 
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -33,27 +34,32 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="login-form">
-            <input
-                className="login-form-field"
-                type="text"
-                placeholder="Username"
-                required
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-            />
-            <input
-                className="login-form-field"
-                type="password"
-                placeholder="Password"
-                required
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-            />
-            <button id="login-button" type="submit">
-                Login
-            </button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit} className="login-form">
+                <input
+                    className="login-form-field"
+                    type="text"
+                    placeholder="Username"
+                    required
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
+                />
+                <input
+                    className="login-form-field"
+                    type="password"
+                    placeholder="Password"
+                    required
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                />
+                <button id="login-button" type="submit">
+                    Login
+                </button>
+            </form>
+            <Link to="/register" id="register-link">
+                No account? register here
+            </Link>
+        </>
     );
 };
 

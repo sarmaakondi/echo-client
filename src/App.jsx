@@ -7,6 +7,7 @@ import Search from "./components/Search";
 import Echo from "./components/Echo";
 import Favorites from "./components/Favorites";
 import Profile from "./components/Profile";
+import Register from "./components/Register";
 import Aside from "./components/Aside";
 import { AuthContext } from "./context/AuthContext";
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/create" element={<Echo />} />
                         <Route path="/favorites" element={<Favorites />} />
                         <Route path="/profile" element={<Profile />} />
+                        <Route path="/register" element={<Register />} />
                     </Route>
                 </Routes>
 

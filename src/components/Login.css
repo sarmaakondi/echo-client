@@ -41,3 +41,17 @@
 #login-button:active {
     transform: scale(0.98);
 }
+
+#register-link {
+    margin-top: 32px;
+    padding-bottom: 4px;
+    text-decoration: none;
+    font-family: inherit;
+    color: hsl(240, 6%, 97%);
+    transition: transform 0.3s;
+}
+
+#register-link:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid hsl(240, 6%, 97%);
+}
