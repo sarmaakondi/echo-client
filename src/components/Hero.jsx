@@ -1,13 +1,16 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 
 import "./Hero.css";
+import { useEffect } from "react";
 
 const Hero = () => {
-    const path = window.location.pathname;
+    const navigate = useNavigate();
 
-    if (path === "/") {
-        return <Navigate to="/feed" />;
-    }
+    useEffect(() => {
+        if (window.location.pathname === "/") {
+            navigate("/feed");
+        }
+    }, [navigate]);
 
     return (
         <div className="parent-container">
