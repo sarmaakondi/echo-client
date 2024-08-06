@@ -9,7 +9,7 @@
     justify-content: space-between;
 }
 
-.profile-container {
+.echo-profile-container {
     display: flex;
     align-items: center;
     gap: 16px;

@@ -12,7 +12,7 @@ const Feed = () => {
                 <div className="child-container">
                     <div>
                         <div className="profile-header">
-                            <div className="profile-container">
+                            <div className="echo-profile-container">
                                 <img
                                     className="profile-picture"
                                     src="/favicon.png"
