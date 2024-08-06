@@ -27,8 +27,6 @@ const Login = () => {
 
             // Store user details in auth context
             login({ username: decoded.username });
-
-            console.log("User logged in:", decoded);
         } catch (error) {
             console.error("Error logging in user:", error.response.data);
         }

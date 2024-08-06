@@ -1,11 +1,18 @@
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Login from "./Login";
 import "./Profile.css";
 
 const Profile = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/profile");
+    };
 
     return (
         <div className="profile-container">
@@ -24,9 +31,9 @@ const Profile = () => {
                             />
                             <p id="username">{user["username"]}</p>
                         </div>
-                        <a id="logout-link" href="#">
+                        <button id="logout-button" onClick={handleLogout}>
                             Logout
-                        </a>
+                        </button>
                     </div>
                 </>
             ) : (

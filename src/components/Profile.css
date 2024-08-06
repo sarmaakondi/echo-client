@@ -45,12 +45,12 @@
     text-transform: capitalize;
 }
 
-#logout-link {
+#logout-button {
     margin-left: 32px;
     display: inline-block;
-    text-decoration: none;
     color: hsl(240, 6%, 97%);
     font-family: inherit;
+    font-size: 16px;
     cursor: pointer;
     background-color: hsl(340, 4%, 43%);
     padding: 8px 16px;
