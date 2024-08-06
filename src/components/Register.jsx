@@ -64,7 +64,7 @@ const Register = () => {
                 <button id="register-button" type="submit">
                     Register
                 </button>
-                <Link to="/login" id="login-link">
+                <Link to="/profile" id="login-link">
                     Have an account? login here
                 </Link>
                 {error && <div className="error-message">{error}</div>}
