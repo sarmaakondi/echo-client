@@ -20,3 +20,50 @@
     font-size: 56px;
     color: hsl(240, 6%, 97%);
 }
+
+.user-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile-pic {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.user-handle {
+    display: flex;
+    align-items: center;
+}
+
+#username {
+    font-size: 20px;
+    color: hsl(240, 6%, 97%);
+    text-transform: capitalize;
+}
+
+#logout-link {
+    margin-left: 32px;
+    display: inline-block;
+    text-decoration: none;
+    color: hsl(240, 6%, 97%);
+    font-family: inherit;
+    cursor: pointer;
+    background-color: hsl(340, 4%, 43%);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 500;
+    outline: none;
+}
+
+#app-context {
+    font-size: 48px;
+    font-family: "Dancing Script", cursive;
+    text-align: center;
+    color: hsl(240, 6%, 97%);
+    margin-bottom: 24px;
+}

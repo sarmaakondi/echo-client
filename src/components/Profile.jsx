@@ -9,11 +9,35 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <div className="app-logo">
-                <img src="/favicon.png" alt="logo" id="logo" />
-                <h1 id="app-name">Echo</h1>
-            </div>
-            {user ? <p>Logged in</p> : <Login />}
+            {user ? (
+                <>
+                    <h1 id="app-context">
+                        Your voice has power
+                        <br />
+                        Let it Echo across the world!
+                    </h1>
+                    <div className="user-container">
+                        <div className="user-handle">
+                            <img
+                                className="user-profile-pic"
+                                src="profile.png"
+                            />
+                            <p id="username">{user["username"]}</p>
+                        </div>
+                        <a id="logout-link" href="#">
+                            Logout
+                        </a>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="app-logo">
+                        <img src="/favicon.png" alt="logo" id="logo" />
+                        <h1 id="app-name">Echo</h1>
+                    </div>
+                    <Login />
+                </>
+            )}
         </div>
     );
 };
