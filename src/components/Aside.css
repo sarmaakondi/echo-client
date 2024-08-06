@@ -125,3 +125,9 @@
 .echo-content {
     margin-top: 16px;
 }
+
+.no-login-text {
+    color: hsl(240, 6%, 87%);
+    font-size: 20px;
+    margin-top: 40px;
+}
