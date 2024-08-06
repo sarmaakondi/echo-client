@@ -10,10 +10,12 @@ import { Link } from "react-router-dom";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const { login } = useContext(AuthContext);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError("");
         try {
             const response = await axiosInstance.post("/login/", {
                 username,
@@ -29,7 +31,11 @@ const Login = () => {
             // Store user details in auth context
             login({ username: decoded.username });
         } catch (error) {
-            console.error("Error logging in user:", error.response.data);
+            if (error.response && error.response.data) {
+                setError(error.response.data.errors || "Invalid credentials");
+            } else {
+                setError("An erorr occurred");
+            }
         }
     };
 
@@ -59,6 +65,7 @@ const Login = () => {
             <Link to="/register" id="register-link">
                 No account? register here
             </Link>
+            {error && <div className="error-message">{error}</div>}
         </>
     );
 };
