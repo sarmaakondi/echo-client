@@ -14,7 +14,7 @@ const Profile = () => {
                     <h1 id="app-context">
                         Your voice has power
                         <br />
-                        Let it Echo across the world!
+                        Let it <span id="echo">Echo</span> across the world!
                     </h1>
                     <div className="user-container">
                         <div className="user-handle">

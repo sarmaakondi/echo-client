@@ -67,3 +67,13 @@
     color: hsl(240, 6%, 97%);
     margin-bottom: 24px;
 }
+
+#echo {
+    display: inline-block;
+    color: hsl(0, 80%, 55%);
+    transition: all 0.3s;
+}
+
+#echo:hover {
+    transform: scale(1.1);
+}
