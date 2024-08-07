@@ -2,25 +2,8 @@
     padding: 8px 16px;
     width: 700px;
     height: 700px;
-    overflow-y: auto;
-}
-
-.child-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.child-container::-webkit-scrollbar-track {
-    background: hsl(240, 6%, 77%);
-    border-radius: 8px;
-}
-
-.child-container::-webkit-scrollbar-thumb {
-    background: hsl(340, 4%, 48%);
-    border-radius: 8px;
-}
-
-.child-container::-webkit-scrollbar-thumb:hover {
-    background: hsl(340, 4%, 38%);
+    overflow: hidden;
+    position: relative;
 }
 
 .profile-header {
@@ -88,18 +71,42 @@
     margin-bottom: 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid hsl(240, 6%, 42%);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
 .feed {
+    height: 100%;
     color: hsl(240, 6%, 82%);
     display: flex;
     flex-direction: column;
     gap: 40px;
+    overflow-y: auto;
+}
+
+.feed::-webkit-scrollbar {
+    width: 4px;
+}
+
+.feed::-webkit-scrollbar-track {
+    background: hsl(240, 6%, 77%);
+    border-radius: 8px;
+}
+
+.feed::-webkit-scrollbar-thumb {
+    background: hsl(340, 4%, 48%);
+    border-radius: 8px;
+}
+
+.feed::-webkit-scrollbar-thumb:hover {
+    background: hsl(340, 4%, 38%);
 }
 
 .echo {
     display: flex;
     gap: 16px;
+    padding-right: 28px;
 }
 
 .feed-details-container {
