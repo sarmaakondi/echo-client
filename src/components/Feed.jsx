@@ -1,10 +1,12 @@
 import Echo from "./Echo";
+import Comments from "./Comments";
+
 import "./Feed.css";
 
 const Feed = ({ echoes }) => {
     return (
         <div className="child-container">
-            {/* Echo form with user profile */}
+            {/* Render Echo form */}
             <Echo />
 
             {/* Render Feed */}
@@ -30,18 +32,9 @@ const Feed = ({ echoes }) => {
                                     {echo.likes === 1 ? "r" : "rs"}
                                 </span>
                             </p>
-                            <div>
-                                {echo.comments.map((comment, index) => (
-                                    <div key={index} className="comment">
-                                        <p>
-                                            <span className="feed-comment-user">
-                                                {comment.user}:{" "}
-                                            </span>
-                                            {comment.content}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+
+                            {/* Render Comments */}
+                            <Comments echo={echo} />
                         </div>
                     </div>
                 ))}

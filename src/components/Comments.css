@@ -1,0 +1,7 @@
+.comment {
+    margin-top: 16px;
+}
+
+.feed-comment-user {
+    text-transform: capitalize;
+}
