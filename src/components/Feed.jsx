@@ -33,8 +33,13 @@ const Feed = ({ echoes }) => {
             <div className="feed">
                 {echoes.map((echo) => (
                     <div key={echo.id} className="echo">
+                        <img
+                            className="profile-picture"
+                            src="profile.png"
+                            alt="user profile picture"
+                        />
+                        <p className="username">{echo.user}</p>
                         <p>{echo.content}</p>
-                        <p>By: {echo.user}</p>
                         <p>Likes: {echo.likes}</p>
                         <div>
                             {echo.comments.map((comment, index) => (

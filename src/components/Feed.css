@@ -22,7 +22,9 @@
 
 .username {
     color: hsl(240, 6%, 77%);
-    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 #post-button {
@@ -59,4 +61,11 @@
 #echo-text::placeholder {
     color: hsl(340, 4%, 63%);
     font-weight: 500;
+}
+
+/* Feed */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
