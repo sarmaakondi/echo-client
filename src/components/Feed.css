@@ -103,3 +103,7 @@
 .reaction-container i:hover {
     transform: scale(1.15);
 }
+
+.fa-solid.fa-heart {
+    color: hsl(350, 100%, 68%);
+}

@@ -38,7 +38,9 @@ const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
                             <p className="feed-content">{echo.content}</p>
                             <div className="reaction-container">
                                 <i
-                                    className="fa-regular fa-heart"
+                                    className={`fa${
+                                        echo.is_liked ? "-solid" : "-regular"
+                                    } fa-heart`}
                                     onClick={() => handleLike(echo.id)}></i>
                                 <i className="fa-regular fa-comment"></i>
                                 <p className="feed-stats">
