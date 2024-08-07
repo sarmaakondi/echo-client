@@ -5,10 +5,13 @@ import "./Feed.css";
 import { useState } from "react";
 
 const Feed = ({ echoes, handleCreateEcho }) => {
-    const [showComments, setShowComments] = useState(false);
+    const [commentVisibility, setCommentVisibility] = useState({});
 
-    const handleClick = () => {
-        setShowComments((showComments) => !showComments);
+    const handleClick = (echoId) => {
+        setCommentVisibility((prevVisibility) => ({
+            ...prevVisibility,
+            [echoId]: !prevVisibility[echoId],
+        }));
     };
 
     return (
@@ -33,7 +36,7 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             <p className="feed-stats">
                                 <span
                                     className="comments-state"
-                                    onClick={handleClick}>
+                                    onClick={() => handleClick(echo.id)}>
                                     {echo.comments?.length ?? 0} repl
                                     {echo.comments?.length === 1 ? "y" : "ies"}
                                 </span>
@@ -45,7 +48,10 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             </p>
 
                             {/* Render Comments */}
-                            <Comments echo={echo} showComments={showComments} />
+                            <Comments
+                                echo={echo}
+                                showComments={commentVisibility[echo.id]}
+                            />
                         </div>
                     </div>
                 ))}
