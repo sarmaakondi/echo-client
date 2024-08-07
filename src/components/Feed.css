@@ -88,9 +88,17 @@
 }
 
 .feed-content {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .comment {
-    margin-top: 12px;
+    margin-top: 16px;
+}
+
+.feed-stats {
+    color: hsl(240, 6%, 67%);
+}
+
+.feed-comment-user {
+    text-transform: capitalize;
 }

@@ -43,12 +43,23 @@ const Feed = ({ echoes }) => {
                         <div className="feed-details-container">
                             <p className="feed-username">{echo.user}</p>
                             <p className="feed-content">{echo.content}</p>
-                            <p>Likes: {echo.likes}</p>
+                            <p className="feed-stats">
+                                {echo.comments.length} repl
+                                {echo.comments.length === 1 ? "y" : "ies"}
+                                <span>
+                                    {" "}
+                                    . Liked by {echo.likes} resonato
+                                    {echo.likes === 1 ? "r" : "rs"}
+                                </span>
+                            </p>
                             <div>
                                 {echo.comments.map((comment, index) => (
                                     <div key={index} className="comment">
                                         <p>
-                                            {comment.user}: {comment.content}
+                                            <span className="feed-comment-user">
+                                                {comment.user}:{" "}
+                                            </span>
+                                            {comment.content}
                                         </p>
                                     </div>
                                 ))}
