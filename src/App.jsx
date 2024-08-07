@@ -9,13 +9,28 @@ import Favorites from "./components/Favorites";
 import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Aside from "./components/Aside";
-import { AuthContext } from "./context/AuthContext";
 
 import "./App.css";
-import { useContext } from "react";
+import { useEffect, useState } from "react";
+import { fetchEchoes } from "./api";
 
 function App() {
-    const { user } = useContext(AuthContext);
+    const [feed, setFeed] = useState([]);
+
+    const loadEchoes = async () => {
+        try {
+            const echoes = await fetchEchoes();
+            setFeed(echoes);
+        } catch (error) {
+            console.error("Failed to load echoes:", error);
+        }
+    };
+
+    useEffect(() => {
+        loadEchoes();
+    }, []);
+
+    console.log(feed);
 
     return (
         <Router>
@@ -24,7 +39,7 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Hero />}>
-                        <Route path="/feed" element={<Feed />} />
+                        <Route path="/feed" element={<Feed echoes={feed} />} />
                         <Route path="/search" element={<Search />} />
                         <Route path="/create" element={<Echo />} />
                         <Route path="/favorites" element={<Favorites />} />
