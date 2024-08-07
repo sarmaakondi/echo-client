@@ -24,8 +24,8 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             <p className="feed-username">{echo.user}</p>
                             <p className="feed-content">{echo.content}</p>
                             <p className="feed-stats">
-                                {echo.comments.length} repl
-                                {echo.comments.length === 1 ? "y" : "ies"}
+                                {echo.comments?.length ?? 0} repl
+                                {echo.comments?.length === 1 ? "y" : "ies"}
                                 <span>
                                     {" "}
                                     . Liked by {echo.likes} resonato
