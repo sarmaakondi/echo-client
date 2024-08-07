@@ -30,7 +30,7 @@ const Feed = () => {
                     </div>
                 </div>
             ) : (
-                <h1>Feed</h1>
+                ""
             )}
         </>
     );
