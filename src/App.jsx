@@ -30,8 +30,6 @@ function App() {
         loadEchoes();
     }, []);
 
-    console.log(feed);
-
     return (
         <Router>
             <div className="app">
