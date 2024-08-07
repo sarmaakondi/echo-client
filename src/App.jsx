@@ -10,17 +10,26 @@ import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Aside from "./components/Aside";
 
-import { useEffect, useState } from "react";
-import { fetchEchoes, createEcho, toggleLikeEcho } from "./api";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "./context/AuthContext";
+
+import {
+    fetchEchoes,
+    fetchEchoesNoAuth,
+    createEcho,
+    toggleLikeEcho,
+} from "./api";
 
 import "./App.css";
 
 function App() {
+    const { user } = useContext(AuthContext);
     const [feed, setFeed] = useState([]);
 
     const loadEchoes = async () => {
         try {
-            const echoes = await fetchEchoes();
+            const echoes =
+                user !== null ? await fetchEchoes() : await fetchEchoesNoAuth();
             setFeed(echoes);
         } catch (error) {
             console.error("Failed to load echoes:", error);

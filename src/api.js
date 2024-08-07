@@ -21,7 +21,7 @@ export const fetchEchoes = async () => {
 // Fetch all the echoes to render the feed (no authentication)
 export const fetchEchoesNoAuth = async () => {
     try {
-        const response = await axiosInstance.get("/list-echoes/");
+        const response = await axiosInstance.get("/list-echoes-no-auth/");
         return response.data;
     } catch (error) {
         console.error(
