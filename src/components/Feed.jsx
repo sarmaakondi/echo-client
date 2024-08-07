@@ -2,8 +2,15 @@ import Echo from "./Echo";
 import Comments from "./Comments";
 
 import "./Feed.css";
+import { useState } from "react";
 
 const Feed = ({ echoes, handleCreateEcho }) => {
+    const [showComments, setShowComments] = useState(false);
+
+    const handleClick = () => {
+        setShowComments((showComments) => !showComments);
+    };
+
     return (
         <div className="child-container">
             {/* Render Echo form */}
@@ -24,8 +31,12 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             <p className="feed-username">{echo.user}</p>
                             <p className="feed-content">{echo.content}</p>
                             <p className="feed-stats">
-                                {echo.comments?.length ?? 0} repl
-                                {echo.comments?.length === 1 ? "y" : "ies"}
+                                <span
+                                    className="comments-state"
+                                    onClick={handleClick}>
+                                    {echo.comments?.length ?? 0} repl
+                                    {echo.comments?.length === 1 ? "y" : "ies"}
+                                </span>
                                 <span>
                                     {" "}
                                     . Liked by {echo.likes} resonato
@@ -34,7 +45,7 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             </p>
 
                             {/* Render Comments */}
-                            <Comments echo={echo} />
+                            <Comments echo={echo} showComments={showComments} />
                         </div>
                     </div>
                 ))}

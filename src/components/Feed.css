@@ -66,3 +66,14 @@
     color: hsl(240, 6%, 67%);
     font-size: 14px;
 }
+
+.comments-state {
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.comments-state:hover {
+    transform: scale(1.1);
+    color: hsl(240, 6%, 87%);
+}

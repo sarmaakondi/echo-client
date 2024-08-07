@@ -1,7 +1,6 @@
 import "./Comments.css";
 
-const Comments = ({ echo }) => {
-    let showComments = true;
+const Comments = ({ echo, showComments }) => {
     return (
         <div key={echo.id}>
             {(echo.comments ?? []).map((comment) => (
