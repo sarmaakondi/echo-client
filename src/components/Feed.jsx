@@ -55,10 +55,10 @@ const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
                                     <span
                                         className="comments-state"
                                         onClick={() => handleClick(echo.id)}>
-                                        {echo.comments?.length ?? 0} repl
+                                        {echo.comments?.length ?? 0} respons
                                         {echo.comments?.length === 1
-                                            ? "y"
-                                            : "ies"}
+                                            ? "e"
+                                            : "es"}
                                     </span>
                                     <span>
                                         {" "}
