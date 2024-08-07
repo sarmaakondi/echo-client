@@ -34,7 +34,7 @@ const Login = () => {
             if (error.response && error.response.data) {
                 setError(error.response.data.errors || "Invalid credentials");
             } else {
-                setError("An erorr occurred");
+                setError("An error occurred");
             }
         }
     };
