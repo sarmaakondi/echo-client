@@ -18,6 +18,7 @@ import {
     fetchEchoesNoAuth,
     createEcho,
     toggleLikeEcho,
+    createComment,
 } from "./api";
 
 import "./App.css";
@@ -45,6 +46,19 @@ function App() {
             );
         } catch (error) {
             console.error("Failed to like/unlike echo:", error);
+        }
+    };
+
+    const handleCreateComment = async (echoId, content) => {
+        try {
+            const updatedEcho = await createComment(echoId, content);
+            setFeed((previousFeed) =>
+                previousFeed.map((echo) =>
+                    echo.id === echoId ? { ...echo, ...updatedEcho } : echo
+                )
+            );
+        } catch (error) {
+            console.error("Failed to create comment:", error);
         }
     };
 
@@ -77,6 +91,7 @@ function App() {
                                     echoes={feed}
                                     handleCreateEcho={handleCreateEcho}
                                     handleLike={handleLike}
+                                    handleCreateComment={handleCreateComment}
                                 />
                             }
                         />
