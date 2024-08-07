@@ -20,7 +20,8 @@
     border-radius: 50%;
 }
 
-.username {
+.username,
+.feed-username {
     color: hsl(240, 6%, 77%);
     text-transform: capitalize;
     font-size: 20px;
@@ -63,9 +64,33 @@
     font-weight: 500;
 }
 
-/* Feed */
 .feed {
+    color: hsl(240, 6%, 82%);
     display: flex;
     flex-direction: column;
     gap: 48px;
+}
+
+.echo {
+    display: flex;
+    gap: 16px;
+}
+
+.feed-details-container {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.feed-username {
+    margin-bottom: 4px;
+}
+
+.feed-content {
+    margin-bottom: 12px;
+}
+
+.comment {
+    margin-top: 12px;
 }
