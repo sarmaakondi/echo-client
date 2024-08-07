@@ -34,3 +34,21 @@ export const createEcho = async (content) => {
         );
     }
 };
+
+// Like/Unlike an Echo
+export const toggleLikeEcho = async (echoId) => {
+    try {
+        const token = localStorage.getItem("access_token");
+        const response = await axiosInstance.post(`/like-echo/${echoId}/`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(
+            "Error toggline like echo",
+            error.response?.data || error.message
+        );
+    }
+};
