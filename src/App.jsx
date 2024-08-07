@@ -10,9 +10,10 @@ import Profile from "./components/Profile";
 import Register from "./components/Register";
 import Aside from "./components/Aside";
 
-import "./App.css";
 import { useEffect, useState } from "react";
-import { fetchEchoes } from "./api";
+import { fetchEchoes, createEcho } from "./api";
+
+import "./App.css";
 
 function App() {
     const [feed, setFeed] = useState([]);
@@ -23,6 +24,15 @@ function App() {
             setFeed(echoes);
         } catch (error) {
             console.error("Failed to load echoes:", error);
+        }
+    };
+
+    handleCreateEcho = async (content) => {
+        try {
+            const newEcho = await createEcho(content);
+            setFeed([newEcho, ...feed]);
+        } catch (error) {
+            console.error("Failed to create new echo:", error);
         }
     };
 
