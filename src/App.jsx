@@ -11,7 +11,7 @@ import Register from "./components/Register";
 import Aside from "./components/Aside";
 
 import { useEffect, useState } from "react";
-import { fetchEchoes, createEcho } from "./api";
+import { fetchEchoes, createEcho, toggleLikeEcho } from "./api";
 
 import "./App.css";
 
@@ -36,6 +36,19 @@ function App() {
         }
     };
 
+    const handleLike = async (echoId) => {
+        try {
+            const updatedEcho = await toggleLikeEcho(echoId);
+            setFeed((previousFeed) =>
+                previousFeed.map((echo) =>
+                    echo.id === echoId ? { ...echo, ...updatedEcho } : echo
+                )
+            );
+        } catch (error) {
+            console.error("Failed to like/unlike echo:", error);
+        }
+    };
+
     useEffect(() => {
         loadEchoes();
     }, []);
@@ -53,6 +66,7 @@ function App() {
                                 <Feed
                                     echoes={feed}
                                     handleCreateEcho={handleCreateEcho}
+                                    handleLike={handleLike}
                                 />
                             }
                         />

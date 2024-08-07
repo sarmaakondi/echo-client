@@ -6,7 +6,7 @@ import Comments from "./Comments";
 
 import "./Feed.css";
 
-const Feed = ({ echoes, handleCreateEcho }) => {
+const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
     const { user } = useContext(AuthContext);
     const [commentVisibility, setCommentVisibility] = useState({});
 
@@ -37,7 +37,9 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                             <p className="feed-username">{echo.user}</p>
                             <p className="feed-content">{echo.content}</p>
                             <div className="reaction-container">
-                                <i className="fa-regular fa-heart"></i>
+                                <i
+                                    className="fa-regular fa-heart"
+                                    onClick={() => handleLike(echo.id)}></i>
                                 <i className="fa-regular fa-comment"></i>
                                 <p className="feed-stats">
                                     <span
