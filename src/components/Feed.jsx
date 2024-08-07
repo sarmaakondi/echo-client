@@ -1,10 +1,13 @@
+import { AuthContext } from "../context/AuthContext";
+import { useContext, useState } from "react";
+
 import Echo from "./Echo";
 import Comments from "./Comments";
 
 import "./Feed.css";
-import { useState } from "react";
 
 const Feed = ({ echoes, handleCreateEcho }) => {
+    const { user } = useContext(AuthContext);
     const [commentVisibility, setCommentVisibility] = useState({});
 
     const handleClick = (echoId) => {
@@ -20,7 +23,7 @@ const Feed = ({ echoes, handleCreateEcho }) => {
             <Echo onCreateEcho={handleCreateEcho} />
 
             {/* Render Feed */}
-            <div className="feed">
+            <div className={user ? "compact-feed" : "feed"}>
                 {echoes.map((echo) => (
                     <div key={echo.id} className="echo">
                         <div>
