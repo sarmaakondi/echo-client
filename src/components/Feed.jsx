@@ -3,11 +3,11 @@ import Comments from "./Comments";
 
 import "./Feed.css";
 
-const Feed = ({ echoes }) => {
+const Feed = ({ echoes, handleCreateEcho }) => {
     return (
         <div className="child-container">
             {/* Render Echo form */}
-            <Echo />
+            <Echo onCreateEcho={handleCreateEcho} />
 
             {/* Render Feed */}
             <div className="feed">

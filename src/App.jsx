@@ -27,7 +27,7 @@ function App() {
         }
     };
 
-    handleCreateEcho = async (content) => {
+    const handleCreateEcho = async (content) => {
         try {
             const newEcho = await createEcho(content);
             setFeed([newEcho, ...feed]);
@@ -47,7 +47,15 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Hero />}>
-                        <Route path="/feed" element={<Feed echoes={feed} />} />
+                        <Route
+                            path="/feed"
+                            element={
+                                <Feed
+                                    echoes={feed}
+                                    handleCreateEcho={handleCreateEcho}
+                                />
+                            }
+                        />
                         <Route path="/search" element={<Search />} />
                         <Route path="/create" element={<Echo />} />
                         <Route path="/favorites" element={<Favorites />} />
