@@ -86,3 +86,20 @@
     transform: scale(1.1);
     color: hsl(240, 6%, 87%);
 }
+
+.reaction-container {
+    margin-bottom: 12px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.reaction-container i {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.reaction-container i:hover {
+    transform: scale(1.15);
+}

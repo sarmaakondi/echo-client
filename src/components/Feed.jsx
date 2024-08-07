@@ -36,19 +36,25 @@ const Feed = ({ echoes, handleCreateEcho }) => {
                         <div className="feed-details-container">
                             <p className="feed-username">{echo.user}</p>
                             <p className="feed-content">{echo.content}</p>
-                            <p className="feed-stats">
-                                <span
-                                    className="comments-state"
-                                    onClick={() => handleClick(echo.id)}>
-                                    {echo.comments?.length ?? 0} repl
-                                    {echo.comments?.length === 1 ? "y" : "ies"}
-                                </span>
-                                <span>
-                                    {" "}
-                                    . Liked by {echo.likes} resonato
-                                    {echo.likes === 1 ? "r" : "rs"}
-                                </span>
-                            </p>
+                            <div className="reaction-container">
+                                <i className="fa-regular fa-heart"></i>
+                                <i className="fa-regular fa-comment"></i>
+                                <p className="feed-stats">
+                                    <span
+                                        className="comments-state"
+                                        onClick={() => handleClick(echo.id)}>
+                                        {echo.comments?.length ?? 0} repl
+                                        {echo.comments?.length === 1
+                                            ? "y"
+                                            : "ies"}
+                                    </span>
+                                    <span>
+                                        {" "}
+                                        . Liked by {echo.likes} resonato
+                                        {echo.likes === 1 ? "r" : "rs"}
+                                    </span>
+                                </p>
+                            </div>
 
                             {/* Render Comments */}
                             <Comments
