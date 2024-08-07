@@ -70,3 +70,25 @@ export const toggleLikeEcho = async (echoId) => {
         );
     }
 };
+
+// Create new Echo
+export const createComment = async (echoId, content) => {
+    try {
+        const token = localStorage.getItem("access_token");
+        const response = await axiosInstance.post(
+            "/create-comment/",
+            { echo_id: echoId, content },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+        return response.data;
+    } catch (error) {
+        console.error(
+            "Error creating new comment",
+            error.response?.data || error.message
+        );
+    }
+};
