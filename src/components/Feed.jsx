@@ -9,14 +9,14 @@ const Feed = ({ echoes }) => {
     return (
         <div className="child-container">
             {user && (
-                <div>
+                <div className="profile-parent-container">
                     <div className="profile-header">
                         <div className="echo-profile-container">
                             <img
                                 className="profile-picture"
-                                src="/favicon.png"
+                                src="/profile.png"
                             />
-                            <p className="username">Sarma Akondi</p>
+                            <p className="username">{user["username"]}</p>
                         </div>
                         <button id="post-button">Echo</button>
                     </div>

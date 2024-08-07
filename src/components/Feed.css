@@ -1,6 +1,26 @@
 .child-container {
+    padding: 8px 16px;
     width: 700px;
     height: 700px;
+    overflow-y: auto;
+}
+
+.child-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.child-container::-webkit-scrollbar-track {
+    background: hsl(240, 6%, 77%);
+    border-radius: 8px;
+}
+
+.child-container::-webkit-scrollbar-thumb {
+    background: hsl(340, 4%, 48%);
+    border-radius: 8px;
+}
+
+.child-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(340, 4%, 38%);
 }
 
 .profile-header {
@@ -64,11 +84,17 @@
     font-weight: 500;
 }
 
+.profile-parent-container {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid hsl(240, 6%, 42%);
+}
+
 .feed {
     color: hsl(240, 6%, 82%);
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
 }
 
 .echo {
