@@ -26,16 +26,6 @@ function App() {
     const { user } = useContext(AuthContext);
     const [feed, setFeed] = useState([]);
 
-    const loadEchoes = async () => {
-        try {
-            const echoes =
-                user !== null ? await fetchEchoes() : await fetchEchoesNoAuth();
-            setFeed(echoes);
-        } catch (error) {
-            console.error("Failed to load echoes:", error);
-        }
-    };
-
     const handleCreateEcho = async (content) => {
         try {
             const newEcho = await createEcho(content);
@@ -59,8 +49,18 @@ function App() {
     };
 
     useEffect(() => {
+        const loadEchoes = async () => {
+            try {
+                const echoes =
+                    user !== null
+                        ? await fetchEchoes()
+                        : await fetchEchoesNoAuth();
+                setFeed(echoes);
+            } catch (error) {
+                console.error("Failed to load echoes:", error);
+            }
+        };
         loadEchoes();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
     return (
