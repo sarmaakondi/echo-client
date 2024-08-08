@@ -6,15 +6,36 @@ import Comments from "./Comments";
 
 import "./Feed.css";
 
-const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
+const Feed = ({
+    echoes,
+    handleCreateEcho,
+    handleLike,
+    handleCreateComment,
+}) => {
     const { user } = useContext(AuthContext);
     const [commentVisibility, setCommentVisibility] = useState({});
+    const [respondingEchoId, setRespondingEchoId] = useState(null);
+    const [newComment, setNewComment] = useState("");
 
     const handleClick = (echoId) => {
         setCommentVisibility((prevVisibility) => ({
             ...prevVisibility,
             [echoId]: !prevVisibility[echoId],
         }));
+    };
+
+    const handleCommentClick = (echoId) => {
+        setRespondingEchoId((prevId) => (prevId === echoId ? null : echoId));
+    };
+
+    const handleCommentChange = (event) => {
+        setNewComment(event.target.value);
+    };
+
+    const handleCommentSubmit = async (echoId) => {
+        await handleCreateComment(echoId, newComment);
+        setRespondingEchoId(null);
+        setNewComment("");
     };
 
     return (
@@ -48,7 +69,11 @@ const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
                                             onClick={() =>
                                                 handleLike(echo.id)
                                             }></i>
-                                        <i className="fa-regular fa-comment"></i>
+                                        <i
+                                            className="fa-regular fa-comment"
+                                            onClick={() =>
+                                                handleCommentClick(echo.id)
+                                            }></i>
                                     </>
                                 )}
                                 <p className="feed-stats">
@@ -67,6 +92,24 @@ const Feed = ({ echoes, handleCreateEcho, handleLike }) => {
                                     </span>
                                 </p>
                             </div>
+
+                            {/* Create comment */}
+                            {respondingEchoId === echo.id && (
+                                <div className="comment-form">
+                                    <input
+                                        type="text"
+                                        value={newComment}
+                                        onChange={handleCommentChange}
+                                        placeholder="Write a response..."
+                                    />
+                                    <button
+                                        onClick={() =>
+                                            handleCommentSubmit(echo.id)
+                                        }>
+                                        Respond
+                                    </button>
+                                </div>
+                            )}
 
                             {/* Render Comments */}
                             <Comments
