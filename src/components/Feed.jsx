@@ -94,22 +94,29 @@ const Feed = ({
                             </div>
 
                             {/* Create comment */}
-                            {respondingEchoId === echo.id && (
-                                <div className="comment-form">
-                                    <input
-                                        type="text"
-                                        value={newComment}
-                                        onChange={handleCommentChange}
-                                        placeholder="Write a response..."
-                                    />
-                                    <button
-                                        onClick={() =>
-                                            handleCommentSubmit(echo.id)
-                                        }>
-                                        Respond
-                                    </button>
-                                </div>
-                            )}
+                            <div
+                                className={`create-comment ${
+                                    respondingEchoId === echo.id ? "show" : ""
+                                }`}>
+                                {respondingEchoId === echo.id && (
+                                    <div className="comment-form">
+                                        <input
+                                            id="response-input"
+                                            type="text"
+                                            value={newComment}
+                                            onChange={handleCommentChange}
+                                            placeholder="Write a response..."
+                                        />
+                                        <button
+                                            id="respond-button"
+                                            onClick={() =>
+                                                handleCommentSubmit(echo.id)
+                                            }>
+                                            Respond
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
 
                             {/* Render Comments */}
                             <Comments

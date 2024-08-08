@@ -58,6 +58,7 @@
 }
 
 .feed-details-container {
+    width: 80%;
     margin-top: 8px;
     display: flex;
     flex-direction: column;
@@ -107,4 +108,53 @@
 
 .fa-solid.fa-heart {
     color: hsl(350, 100%, 68%);
+}
+
+.comment-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#response-input {
+    height: 35px;
+    width: 75%;
+    border: 1px inset rgba(118, 118, 118, 0.5);
+    border-radius: 10px;
+    background-color: hsl(340, 5%, 24%);
+    color: hsl(240, 6%, 77%);
+    outline: none;
+    padding-left: 16px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+#response-input::placeholder {
+    color: hsl(340, 4%, 63%);
+    font-weight: 500;
+}
+
+#respond-button {
+    font-family: inherit;
+    cursor: pointer;
+    background-color: hsl(340, 4%, 38%);
+    font-size: 14px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 50px;
+    color: hsl(240, 6%, 87%);
+    font-weight: 500;
+    outline: none;
+}
+
+#respond-button:active {
+    transform: scale(0.98);
+}
+
+.create-comment {
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+.create-comment.show {
+    opacity: 1;
 }
