@@ -1,10 +1,24 @@
+#favorite-header {
+    color: hsl(240, 6%, 87%);
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid hsl(240, 6%, 42%);
+}
+
+.favorite-icon {
+    padding: 0 20px;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.favorite-icon:hover {
+    transform: scale(1.25);
+    color: hsl(350, 100%, 68%);
+}
+
 #no-auth-title {
     color: hsl(240, 6%, 87%);
     font-weight: 500;
-}
-
-.favorite-echo-container {
-    padding: 8px 16px;
-    width: 700px;
-    height: 700px;
 }

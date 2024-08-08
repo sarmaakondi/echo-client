@@ -24,17 +24,19 @@ const Favorites = ({ handleLike, handleCreateComment }) => {
     return (
         <>
             {user ? (
-                <>
-                    <div className="favorite-echo-container">
-                        <h1>Your Favorite Echoes</h1>
-                    </div>
+                <div className="child-container">
+                    <h1 id="favorite-header">
+                        Your
+                        <i className="favorite-icon fa-regular fa-heart"></i>
+                        Echoes
+                    </h1>
                     <Feed
                         echoes={likedEchoes}
                         handleLike={handleLike}
                         handleCreateComment={handleCreateComment}
                         showEchoForm={false}
                     />
-                </>
+                </div>
             ) : (
                 <h1 id="no-auth-title">Login required!</h1>
             )}
