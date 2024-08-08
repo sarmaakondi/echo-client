@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 
 import Echo from "./Echo";
 import Comments from "./Comments";
+import formatTimeAgo from "../utility";
 
 import "./Feed.css";
 
@@ -55,7 +56,12 @@ const Feed = ({
                             />
                         </div>
                         <div className="feed-details-container">
-                            <p className="feed-username">{echo.user}</p>
+                            <p className="feed-username">
+                                {echo.user}
+                                <span className="time-age">
+                                    {formatTimeAgo(echo.created_at)}
+                                </span>
+                            </p>
                             <p className="feed-content">{echo.content}</p>
                             <div className="reaction-container">
                                 {user && (
