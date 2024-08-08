@@ -2,3 +2,9 @@
     color: hsl(240, 6%, 87%);
     font-weight: 500;
 }
+
+.favorite-echo-container {
+    padding: 8px 16px;
+    width: 700px;
+    height: 700px;
+}

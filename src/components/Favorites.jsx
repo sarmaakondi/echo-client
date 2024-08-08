@@ -9,9 +9,12 @@ const Favorites = () => {
     return (
         <>
             {user ? (
-                <div>
-                    <h1>Your Favorite Echoes</h1>
-                </div>
+                <>
+                    <div className="favorite-echo-container">
+                        <h1>Your Favorite Echoes</h1>
+                    </div>
+                    <div className="favorite-echo-content"></div>
+                </>
             ) : (
                 <h1 id="no-auth-title">Login required!</h1>
             )}
