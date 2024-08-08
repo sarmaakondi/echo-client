@@ -65,7 +65,7 @@
     font-size: 36px;
     text-align: center;
     color: hsl(240, 6%, 92%);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 #echo {
@@ -76,4 +76,34 @@
 
 #echo:hover {
     transform: scale(1.08);
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-top: 48px;
+    gap: 16px;
+}
+
+#upload-input {
+    display: inline-block;
+    color: hsl(240, 6%, 97%);
+    font-family: inherit;
+    font-size: 14px;
+    padding-left: 8px;
+}
+
+#upload-button {
+    width: 200px;
+    color: hsl(240, 6%, 97%);
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: hsl(340, 4%, 43%);
+    padding: 10px 0;
+    border: none;
+    border-radius: 50px;
+    font-weight: 500;
+    outline: none;
 }

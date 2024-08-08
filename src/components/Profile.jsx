@@ -46,28 +46,30 @@ const Profile = () => {
                         <div className="user-handle">
                             <img
                                 className="user-profile-pic"
-                                src={profilePicture}
+                                src={
+                                    user?.user_profile_picture || "profile.png"
+                                }
                             />
                             <p id="username">{user["username"]}</p>
                         </div>
 
-                        <div className="upload-container">
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                                id="upload-input"
-                            />
-                            <button
-                                onClick={handleUpload}
-                                id="upload-button"
-                                disabled={!file}>
-                                Upload Profile Picture
-                            </button>
-                        </div>
-
                         <button id="logout-button" onClick={handleLogout}>
                             Logout
+                        </button>
+                    </div>
+
+                    <div className="upload-container">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            id="upload-input"
+                        />
+                        <button
+                            onClick={handleUpload}
+                            id="upload-button"
+                            disabled={!file}>
+                            Upload Profile Picture
                         </button>
                     </div>
                 </>
