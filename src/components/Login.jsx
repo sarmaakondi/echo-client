@@ -5,13 +5,14 @@ import { axiosInstance } from "../axiosConfig";
 import { AuthContext } from "../context/AuthContext";
 
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -33,6 +34,7 @@ const Login = () => {
                 username: decoded.username,
                 user_profile_picture: decoded.profile_picture_url,
             });
+            navigate("/feed");
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.errors || "Invalid credentials");
@@ -50,8 +52,8 @@ const Login = () => {
                     className="login-form-field"
                     type="text"
                     placeholder="Username"
-                    name="username"
-                    id="username"
+                    name="login-username"
+                    id="login-username"
                     required
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}

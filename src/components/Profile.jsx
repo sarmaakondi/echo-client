@@ -28,7 +28,7 @@ const Profile = () => {
         if (file) {
             const data = await uploadProfilePicture(file);
             if (data) {
-                setProfilePicture(data.profile_picture_url);
+                setProfilePicture(data.user_profile_picture);
             }
         }
     };
@@ -46,9 +46,7 @@ const Profile = () => {
                         <div className="user-handle">
                             <img
                                 className="user-profile-pic"
-                                src={
-                                    user?.user_profile_picture || "profile.png"
-                                }
+                                src={profilePicture}
                             />
                             <p id="username">{user["username"]}</p>
                         </div>

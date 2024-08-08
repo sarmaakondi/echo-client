@@ -42,8 +42,8 @@ const Register = () => {
                     className="register-form-field"
                     type="text"
                     value={username}
-                    name="username"
-                    id="username"
+                    name="register-username"
+                    id="register-username"
                     required
                     placeholder="Username"
                     onChange={(event) => setUsername(event.target.value)}

@@ -128,7 +128,6 @@ export const uploadProfilePicture = async (file) => {
                 },
             }
         );
-        console.log(response.data);
         return response.data;
     } catch (error) {
         console.error(

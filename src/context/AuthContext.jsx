@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
             const decoded = jwtDecode(token);
             setUser({
                 username: decoded.username,
-                user_profile_picture: decoded.profile_picture_url,
+                user_profile_picture: decoded.user_profile_picture,
             });
         }
     }, []);
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
                 const decoded = jwtDecode(access);
                 setUser({
                     username: decoded.username,
-                    user_profile_picture: decoded.profile_picture_url,
+                    user_profile_picture: decoded.user_profile_picture,
                 });
             } catch (error) {
                 console.error(
