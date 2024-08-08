@@ -92,3 +92,21 @@ export const createComment = async (echoId, content) => {
         );
     }
 };
+
+// Fetch all the liked echoes to render the feed
+export const fetchLikedEchoes = async () => {
+    try {
+        const token = localStorage.getItem("access_token");
+        const response = await axiosInstance.get("/list-liked-echoes/", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error(
+            "Error fetching liked echoes",
+            error.response?.data || error.message
+        );
+    }
+};
