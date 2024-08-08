@@ -15,6 +15,7 @@ import { AuthContext } from "./context/AuthContext";
 
 import {
     fetchEchoes,
+    fetchLikedEchoes,
     fetchEchoesNoAuth,
     createEcho,
     toggleLikeEcho,
@@ -26,6 +27,7 @@ import "./App.css";
 function App() {
     const { user } = useContext(AuthContext);
     const [feed, setFeed] = useState([]);
+    const [likedEchoes, setLikedEchoes] = useState([]);
 
     const handleCreateEcho = async (content) => {
         try {
@@ -39,11 +41,23 @@ function App() {
     const handleLike = async (echoId) => {
         try {
             const updatedEcho = await toggleLikeEcho(echoId);
+
             setFeed((previousFeed) =>
                 previousFeed.map((echo) =>
                     echo.id === echoId ? { ...echo, ...updatedEcho } : echo
                 )
             );
+
+            if (user) {
+                const isEchoLiked = likedEchoes.some(
+                    (echo) => echo.id === echoId
+                );
+                const updatedLikedEchoes = isEchoLiked
+                    ? likedEchoes.filter((echo) => echo.id !== echoId)
+                    : [...likedEchoes, updatedEcho];
+
+                setLikedEchoes(updatedLikedEchoes);
+            }
         } catch (error) {
             console.error("Failed to like/unlike echo:", error);
         }
@@ -77,6 +91,21 @@ function App() {
         loadEchoes();
     }, [user]);
 
+    useEffect(() => {
+        const loadLikedEchoes = async () => {
+            if (user) {
+                try {
+                    const echoes = await fetchLikedEchoes();
+                    setLikedEchoes(echoes);
+                } catch (error) {
+                    console.error("Failed to load liked echoes:", error);
+                }
+            }
+        };
+
+        loadLikedEchoes();
+    }, [user]);
+
     return (
         <Router>
             <div className="app">
@@ -101,6 +130,7 @@ function App() {
                             path="/favorites"
                             element={
                                 <Favorites
+                                    likedEchoes={likedEchoes}
                                     handleLike={handleLike}
                                     handleCreateComment={handleCreateComment}
                                 />
