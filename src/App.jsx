@@ -97,7 +97,15 @@ function App() {
                         />
                         <Route path="/search" element={<Search />} />
                         <Route path="/create" element={<Echo />} />
-                        <Route path="/favorites" element={<Favorites />} />
+                        <Route
+                            path="/favorites"
+                            element={
+                                <Favorites
+                                    handleLike={handleLike}
+                                    handleCreateComment={handleCreateComment}
+                                />
+                            }
+                        />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/register" element={<Register />} />
                     </Route>

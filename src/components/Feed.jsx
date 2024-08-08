@@ -12,6 +12,7 @@ const Feed = ({
     handleCreateEcho,
     handleLike,
     handleCreateComment,
+    showEchoForm = true,
 }) => {
     const { user } = useContext(AuthContext);
     const [commentVisibility, setCommentVisibility] = useState({});
@@ -42,7 +43,7 @@ const Feed = ({
     return (
         <div className="child-container">
             {/* Render Echo form */}
-            <Echo onCreateEcho={handleCreateEcho} />
+            {showEchoForm && <Echo onCreateEcho={handleCreateEcho} />}
 
             {/* Render Feed */}
             <div className={user ? "compact-feed" : "feed"}>
