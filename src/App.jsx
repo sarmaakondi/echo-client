@@ -125,7 +125,8 @@ function App() {
                             }
                         />
                         <Route path="/search" element={<Search />} />
-                        <Route path="/create" element={<Echo />} />
+                        {/* Commented out to decide and remove later */}
+                        {/* <Route path="/create" element={<Echo />} /> */}
                         <Route
                             path="/favorites"
                             element={

@@ -1,10 +1,10 @@
-import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
+// import { AuthContext } from "../context/AuthContext";
+// import { useContext } from "react";
 
 import "./Aside.css";
 
 const Aside = () => {
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     return (
         <>
@@ -14,7 +14,7 @@ const Aside = () => {
                         <p>Follow Resonators</p>
                         <button id="view-button">View All</button>
                     </div>
-                    {user ? (
+                    {/* {user ? (
                         <div className="resonators">
                             <ul className="resonator">
                                 <div className="resonator-container">
@@ -93,7 +93,8 @@ const Aside = () => {
                         </div>
                     ) : (
                         <p className="no-login-text">Login required!</p>
-                    )}
+                    )} */}
+                    <h2 className="coming-soon-text">Coming soon...</h2>
                 </div>
                 <div className="today-echo-container">
                     <div className="today-header">
@@ -103,7 +104,7 @@ const Aside = () => {
                         </div>
                         <button id="view-button">View All</button>
                     </div>
-                    {user ? (
+                    {/* {user ? (
                         <div className="today-echo-section">
                             <div className="today-echo-profile">
                                 <img
@@ -122,7 +123,8 @@ const Aside = () => {
                         </div>
                     ) : (
                         <p className="no-login-text">Login required!</p>
-                    )}
+                    )} */}
+                    <h2 className="coming-soon-text">Coming soon...</h2>
                 </div>
             </div>
         </>

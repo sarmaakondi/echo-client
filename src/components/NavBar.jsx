@@ -22,7 +22,8 @@ const NavBar = () => {
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
             </NavLink>
-            <NavLink
+            {/* Commented out below to decide and remove later */}
+            {/* <NavLink
                 to="/create"
                 className={({ isActive }) =>
                     isActive ? "nav-link active-link" : "nav-link"
@@ -30,7 +31,7 @@ const NavBar = () => {
                 <div className="nav-icon">
                     <i className="fa-solid fa-plus"></i>
                 </div>
-            </NavLink>
+            </NavLink> */}
             <NavLink
                 to="/favorites"
                 className={({ isActive }) =>

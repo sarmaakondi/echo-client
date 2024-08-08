@@ -1,5 +1,11 @@
+import "./Search.css";
+
 const Search = () => {
-    return <h1>Search</h1>;
+    return (
+        <div className="child-container">
+            <h1 id="search-header">Search coming soon...</h1>
+        </div>
+    );
 };
 
 export default Search;
