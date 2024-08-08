@@ -18,7 +18,9 @@
     color: hsl(350, 100%, 68%);
 }
 
-#no-auth-title {
+#no-auth-title,
+#no-favorites-title {
     color: hsl(240, 6%, 87%);
     font-weight: 500;
+    text-align: center;
 }

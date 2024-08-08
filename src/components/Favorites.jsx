@@ -13,7 +13,7 @@ const Favorites = ({ likedEchoes, handleLike, handleCreateComment }) => {
             {!user ? (
                 <h1 id="no-auth-title">Login required!</h1>
             ) : likedEchoes.length === 0 ? (
-                <h1 id="no-favorites-title">No favotie echoes yet!</h1>
+                <h1 id="no-favorites-title">No favorite echoes yet!</h1>
             ) : (
                 <>
                     <h1 id="favorite-header">
