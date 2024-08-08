@@ -1,3 +1,4 @@
+import formatTimeAgo from "../utility";
 import "./Comments.css";
 
 const Comments = ({ echo, showComments }) => {
@@ -14,9 +15,12 @@ const Comments = ({ echo, showComments }) => {
                                     alt="user profile picture"
                                 />
                             </div>
-                            <div>
+                            <div className="comment-child-container">
                                 <p className="comment-username">
                                     {comment.user}
+                                    <span className="comment-time-age">
+                                        {formatTimeAgo(comment.created_at)}
+                                    </span>
                                 </p>
                                 <p className="comment-content">
                                     {comment.content}

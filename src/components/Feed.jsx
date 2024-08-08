@@ -58,7 +58,7 @@ const Feed = ({
                         <div className="feed-details-container">
                             <p className="feed-username">
                                 {echo.user}
-                                <span className="time-age">
+                                <span className="echo-time-age">
                                     {formatTimeAgo(echo.created_at)}
                                 </span>
                             </p>

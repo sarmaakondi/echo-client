@@ -35,10 +35,23 @@
     background: hsl(340, 4%, 38%);
 }
 
+.comment-child-container {
+    width: 80%;
+}
+
 .comment-username {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-transform: capitalize;
     margin: 4px 0;
     font-size: 15px;
+}
+
+.comment-time-age {
+    font-size: 12px;
+    text-transform: lowercase;
+    color: hsl(240, 6%, 62%);
 }
 
 .comment-profile-picture {
