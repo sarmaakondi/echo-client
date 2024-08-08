@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
 import Feed from "./components/Feed";
 import Search from "./components/Search";
-import Echo from "./components/Echo";
+// import Echo from "./components/Echo";
 import Favorites from "./components/Favorites";
 import Profile from "./components/Profile";
 import Register from "./components/Register";
