@@ -33,6 +33,7 @@ const Echo = ({ onCreateEcho }) => {
                         </button>
                     </div>
                     <input
+                        autoComplete="off"
                         type="text"
                         name="echo-text"
                         id="echo-text"

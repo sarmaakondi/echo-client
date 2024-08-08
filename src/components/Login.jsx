@@ -32,7 +32,7 @@ const Login = () => {
             // Store user details in auth context
             login({
                 username: decoded.username,
-                user_profile_picture: decoded.profile_picture_url,
+                user_profile_picture: decoded.user_profile_picture,
             });
             navigate("/feed");
         } catch (error) {
