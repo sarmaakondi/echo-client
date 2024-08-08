@@ -61,10 +61,10 @@
 }
 
 #app-context {
-    font-size: 48px;
-    font-family: "Dancing Script", cursive;
+    line-height: 1.5;
+    font-size: 36px;
     text-align: center;
-    color: hsl(240, 6%, 97%);
+    color: hsl(240, 6%, 92%);
     margin-bottom: 24px;
 }
 
@@ -75,5 +75,5 @@
 }
 
 #echo:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
