@@ -7,10 +7,19 @@
 }
 
 .feed-username {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: hsl(240, 6%, 77%);
     text-transform: capitalize;
     font-size: 20px;
     font-weight: 500;
+}
+
+.time-age {
+    font-size: 14px;
+    text-transform: lowercase;
+    color: hsl(240, 6%, 62%);
 }
 
 .feed,
