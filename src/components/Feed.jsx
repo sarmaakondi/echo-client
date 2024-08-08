@@ -52,7 +52,9 @@ const Feed = ({
                         <div>
                             <img
                                 className="profile-picture"
-                                src="profile.png"
+                                src={
+                                    echo?.user_profile_picture || "profile.png"
+                                }
                                 alt="user profile picture"
                             />
                         </div>

@@ -22,7 +22,9 @@ const Echo = ({ onCreateEcho }) => {
                         <div className="echo-profile-container">
                             <img
                                 className="profile-picture"
-                                src="/profile.png"
+                                src={
+                                    user?.user_profile_picture || "profile.png"
+                                }
                             />
                             <p className="username">{user["username"]}</p>
                         </div>

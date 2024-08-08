@@ -110,3 +110,30 @@ export const fetchLikedEchoes = async () => {
         );
     }
 };
+
+// Upload profile picture
+export const uploadProfilePicture = async (file) => {
+    try {
+        const token = localStorage.getItem("access_token");
+        const formData = new FormData();
+        formData.append("profile_picture", file);
+
+        const response = await axiosInstance.post(
+            "/upload-profile-pic/",
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        );
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.error(
+            "Error uploading profile picture",
+            error.response?.data || error.message
+        );
+    }
+};

@@ -29,7 +29,10 @@ const Login = () => {
             localStorage.setItem("refresh_token", refresh);
 
             // Store user details in auth context
-            login({ username: decoded.username });
+            login({
+                username: decoded.username,
+                user_profile_picture: decoded.profile_picture_url,
+            });
         } catch (error) {
             if (error.response && error.response.data) {
                 setError(error.response.data.errors || "Invalid credentials");

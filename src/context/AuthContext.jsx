@@ -11,7 +11,10 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("access_token");
         if (token) {
             const decoded = jwtDecode(token);
-            setUser({ username: decoded.username });
+            setUser({
+                username: decoded.username,
+                user_profile_picture: decoded.profile_picture_url,
+            });
         }
     }, []);
 
@@ -36,7 +39,10 @@ export const AuthProvider = ({ children }) => {
                 const { access } = response.data;
                 localStorage.setItem("access_token", access);
                 const decoded = jwtDecode(access);
-                setUser({ username: decoded.username });
+                setUser({
+                    username: decoded.username,
+                    user_profile_picture: decoded.profile_picture_url,
+                });
             } catch (error) {
                 console.error(
                     "Error refreshing token:",

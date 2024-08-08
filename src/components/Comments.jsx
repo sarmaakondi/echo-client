@@ -11,7 +11,10 @@ const Comments = ({ echo, showComments }) => {
                             <div>
                                 <img
                                     className="comment-profile-picture"
-                                    src="profile.png"
+                                    src={
+                                        comment?.user_profile_picture ||
+                                        "profile.png"
+                                    }
                                     alt="user profile picture"
                                 />
                             </div>
