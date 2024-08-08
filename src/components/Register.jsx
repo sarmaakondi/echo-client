@@ -38,17 +38,23 @@ const Register = () => {
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
                 <input
+                    autoComplete="off"
                     className="register-form-field"
                     type="text"
                     value={username}
+                    name="username"
+                    id="username"
                     required
                     placeholder="Username"
                     onChange={(event) => setUsername(event.target.value)}
                 />
                 <input
+                    autoComplete="off"
                     className="register-form-field"
                     type="email"
                     placeholder="Email"
+                    name="email"
+                    id="email"
                     required
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
@@ -57,6 +63,8 @@ const Register = () => {
                     className="register-form-field"
                     type="password"
                     value={password}
+                    name="password"
+                    id="password"
                     required
                     placeholder="Password"
                     onChange={(event) => setPassword(event.target.value)}

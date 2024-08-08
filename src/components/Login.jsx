@@ -46,9 +46,12 @@ const Login = () => {
         <>
             <form onSubmit={handleSubmit} className="login-form">
                 <input
+                    autoComplete="off"
                     className="login-form-field"
                     type="text"
                     placeholder="Username"
+                    name="username"
+                    id="username"
                     required
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
@@ -57,6 +60,8 @@ const Login = () => {
                     className="login-form-field"
                     type="password"
                     placeholder="Password"
+                    name="password"
+                    id="password"
                     required
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
